@@ -48,8 +48,9 @@ def handle_message(event):
     if msg.text == "選股":
         line_bot_api.reply_message(
             event.reply_token,
-            TYPE
+            text = TYPE
         )
+        return 
 
 
     # if event.message.text in finance.ETF:

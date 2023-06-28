@@ -3,7 +3,7 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 import os
-# from api.finance import Finance
+from api.finance import Finance
 
 TYPE = "1.ETF, 2.績優股, 3.金融股"
 
@@ -12,7 +12,7 @@ line_handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 working_status = os.getenv("DEFALUT_TALKING", default = "true").lower() == "true"
 
 app = Flask(__name__)
-# finance = Finance()
+finance = Finance()
 
 # domain root
 @app.route('/')
@@ -54,8 +54,8 @@ def handle_message(event):
                 "00701.TW : 國泰股利精選30"
     elif msg.text == "績優股" or msg.text == "2" or msg.text == "2.":
         reply = "績優股"
-        # for key, val in finance.BlueChip.items():
-        #     reply += key + ":" + val + "\n"
+        for key, val in finance.BlueChip.items():
+            reply += key + ":" + val + "\n"
     elif msg.text == "金融股" or msg.text == "3" or msg.text == "3.":
         reply = "金融股"
     else:

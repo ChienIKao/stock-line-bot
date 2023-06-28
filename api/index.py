@@ -2,16 +2,15 @@ from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
-from api.chatgpt import ChatGPT
-
 import os
+# from api.finance import Finance
 
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 line_handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 working_status = os.getenv("DEFALUT_TALKING", default = "true").lower() == "true"
 
 app = Flask(__name__)
-chatgpt = ChatGPT()
+# finance = Finance()
 
 # domain root
 @app.route('/')
@@ -38,28 +37,24 @@ def handle_message(event):
     global working_status
     if event.message.type != "text":
         return
-
-    if event.message.text == "說話":
-        working_status = True
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text="我可以說話囉，歡迎來跟我互動 ^_^ "))
+    else:
+        message = TextSendMessage(text=event.message.text)
+        line_bot_api.reply_message(event.reply_token, message)
         return
 
-    if event.message.text == "閉嘴":
-        working_status = False
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text="好的，我乖乖閉嘴 > <，如果想要我繼續說話，請跟我說 「說話」 > <"))
-        return
+    # if event.message.text in finance.ETF:
+    #     symbol = finance.ETF
+    # elif event.message.text in finance.BlueChip:
+    #     symbol = finance.BlueChip
+    # elif event.message.text in finance.Financial:
+    #     symbol = finance.Financial
 
-    if working_status:
-        chatgpt.add_msg(f"HUMAN:{event.message.text}?\n")
-        reply_msg = chatgpt.get_response().replace("AI:", "", 1)
-        chatgpt.add_msg(f"AI:{reply_msg}\n")
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=reply_msg))
+    # if event.message.text == "閉嘴":
+    #     working_status = False
+    #     line_bot_api.reply_message(
+    #         event.reply_token,
+    #         TextSendMessage(text="好的，我乖乖閉嘴 > <，如果想要我繼續說話，請跟我說 「說話」 > <"))
+    #     return
 
 
 if __name__ == "__main__":

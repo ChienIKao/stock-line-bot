@@ -54,8 +54,8 @@ def handle_message(event):
                 "00701.TW : 國泰股利精選30"
     elif msg.text == "績優股" or msg.text == "2" or msg.text == "2.":
         reply = "績優股"
-        for key, val in finance.BlueChip.items():
-            reply += key + ":" + val + "\n"
+        # for key, val in finance.BlueChip.items():
+            # reply += key + ":" + val + "\n"
     elif msg.text == "金融股" or msg.text == "3" or msg.text == "3.":
         reply = "金融股"
     else:

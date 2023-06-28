@@ -32,5 +32,5 @@ class Finance:
         dateStr = str(Y1)+"/"+str(M1)+"/"+str(D1)    
         return dateStr
     
-    def getData(self, symbols):
-        for symbol, name in symbols.items():
+    # def getData(self, symbols):
+    #     for symbol, name in symbols.items():

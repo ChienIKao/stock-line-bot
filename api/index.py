@@ -43,21 +43,21 @@ def handle_message(event):
     
     if msg.text == "選股":
         reply = TYPE
-    elif msg.text == "ETF" or msg.text == "1" or msg.text == "1.":
-        reply = "00878.TW  : 國泰永續高股息" + \
-                "00919.TW  : 群益台灣精選高息" + \
-                "00713.TW  : 元大台灣高息低波" + \
-                "0056.TW   : 元大高股息" + \
+    elif msg.text == "ETF" or msg.text == "etf" or msg.text == "1" or msg.text == "1.":
+        reply = "00878.TW : 國泰永續高股息" + \
+                "00919.TW : 群益台灣精選高息" + \
+                "00713.TW : 元大台灣高息低波" + \
+                "0056.TW : 元大高股息" + \
                 "006208.TW : 富邦台灣50" + \
-                "00690.TW  : 兆豐藍籌30" + \
-                "00850.TW  : 元大臺灣ESG永續" + \
-                "00701.TW  : 國泰股利精選30"
+                "00690.TW : 兆豐藍籌30" + \
+                "00850.TW : 元大臺灣ESG永續" + \
+                "00701.TW : 國泰股利精選30"
     elif msg.text == "績優股" or msg.text == "2" or msg.text == "2.":
         reply = "績優股"
     elif msg.text == "金融股" or msg.text == "3" or msg.text == "3.":
         reply = "金融股"
     else:
-        reply = "我不知道你在說什麼"
+        reply = "一袋米要扛幾樓"
 
     line_bot_api.reply_message(
         event.reply_token,

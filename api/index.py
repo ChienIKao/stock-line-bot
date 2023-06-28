@@ -3,7 +3,7 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 import os
-from api.finance import Finance
+# from api.finance import Finance
 
 TYPE = "1.ETF, 2.績優股, 3.金融股"
 
@@ -12,7 +12,7 @@ line_handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 working_status = os.getenv("DEFALUT_TALKING", default = "true").lower() == "true"
 
 app = Flask(__name__)
-finance = Finance()
+# finance = Finance()
 
 # domain root
 @app.route('/')

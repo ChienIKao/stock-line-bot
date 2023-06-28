@@ -48,7 +48,7 @@ def handle_message(event):
     if msg.text == "選股":
         line_bot_api.reply_message(
             event.reply_token,
-            text = TYPE
+            TextSendMessage(text = TYPE)
         )
         return 
 

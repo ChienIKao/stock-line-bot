@@ -5,6 +5,8 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 import os
 # from api.finance import Finance
 
+TYPE = "[1]: ETF, [2]: 績優股, [3]: 金融股"
+
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 line_handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 working_status = os.getenv("DEFALUT_TALKING", default = "true").lower() == "true"
@@ -34,13 +36,21 @@ def callback():
 
 @line_handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    global working_status
-    if event.message.type != "text":
+    msg = event.message
+    # global working_status
+    if msg.type != "text":
         return
-    else:
-        message = TextSendMessage(text=event.message.text)
-        line_bot_api.reply_message(event.reply_token, message)
-        return
+    # else:
+    #     message = TextSendMessage(text=event.message.text)
+    #     line_bot_api.reply_message(event.reply_token, message)
+    #     return
+
+    if msg.text == "選股":
+        line_bot_api.reply_message(
+            event.reply_token,
+            TYPE
+        )
+
 
     # if event.message.text in finance.ETF:
     #     symbol = finance.ETF

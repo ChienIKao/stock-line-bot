@@ -184,7 +184,7 @@ for symbol, name in symbols.items():
     adl = adl.cumsum()
 
     #df['Volume'] = df['Volume'].fillna(0)
-    # ©uºâMFI
+    # ­pºâ MFI
     typical_price = (df['High'] + df['Low'] + df['Close']) / 3
     money_flow = typical_price * df['Volume']
     positive_flow = np.where(typical_price > typical_price.shift(1), money_flow, 0)

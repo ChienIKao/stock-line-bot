@@ -6,9 +6,6 @@ import datetime
 from imgurpython import ImgurClient
 import pyimgur
 
-
-# VydCncZ
-
 class Finance:
     def __init__(self):
         self.symbol = {}
@@ -88,8 +85,8 @@ class Finance:
     
     def upload(self):
         client_id = 'cbac1b726bffaa2'
-        client_secret = 'aa6359f77337408decf5e590c70a13b6fcba346b'
-        client = ImgurClient(client_id, client_secret)
+        # client_secret = 'aa6359f77337408decf5e590c70a13b6fcba346b'
+        # client = ImgurClient(client_id, client_secret)
 
         im = pyimgur.Imgur(client_id)
         path = "img.png"

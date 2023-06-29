@@ -2,8 +2,8 @@ from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
-import os
 from finance import Finance
+import os
 
 
 # ETF, 績優股, 金融股
@@ -37,7 +37,7 @@ FINANCIAL = {
 # line_handler = WebhookHandler('11ce307d39f4e16e81dc9c49c3353ca9')
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 line_handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
-working_status = os.getenv("DEFALUT_TALKING", default = "true").lower() == "true"
+# working_status = os.getenv("DEFALUT_TALKING", default = "true").lower() == "true"
 
 app = Flask(__name__)
 finance = Finance()

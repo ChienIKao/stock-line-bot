@@ -51,8 +51,8 @@ def handle_message(event):
         reply = TYPE
     elif msg.text == "ETF" or msg.text == "etf" or msg.text == "1" or msg.text == "1.":
         reply = "ETF"
-        for key, val in ETF:
-            reply += key + " : " + val + "\n"
+        # for key, val in ETF:
+        #     reply += key + " : " + val + "\n"
         # reply = "00878.TW : 國泰永續高股息" + \
         #         "00919.TW : 群益台灣精選高息" + \
         #         "00713.TW : 元大台灣高息低波" + \

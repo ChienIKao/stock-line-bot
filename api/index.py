@@ -5,7 +5,6 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSend
 from finance import Finance
 # import os
 
-
 # ETF, 績優股, 金融股
 TYPE = "1. ETF \n2. 績優股 \n3. 金融股"
 ETF = {

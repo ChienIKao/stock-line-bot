@@ -3,7 +3,7 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
 from finance import Finance
-import os
+# import os
 
 
 # ETF, 績優股, 金融股
@@ -90,13 +90,13 @@ def handle_message(event):
     elif msg in ETF or msg in BLUE_CHIP or msg in FINANCIAL:
         if msg in ETF:
             reply = finance.getReplyMsg(msg, ETF[msg])
-            img_url = finance.getImg(msg)
+            # img_url = finance.getImg(msg)
         elif msg in BLUE_CHIP:
             reply = finance.getReplyMsg(msg, BLUE_CHIP[msg])
-            img_url = finance.getImg(msg)
+            # img_url = finance.getImg(msg)
         elif msg in FINANCIAL:
             reply = finance.getReplyMsg(msg, FINANCIAL[msg])
-            img_url = finance.getImg(msg)
+            # img_url = finance.getImg(msg)
         else:
             reply = '抱歉，請在試一次'
 

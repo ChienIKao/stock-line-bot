@@ -37,7 +37,7 @@ line_bot_api = LineBotApi('CnxTIV3ZENKBF4uLOFI2x2I2wwG7Y0ILmp0pR+TvHbE/pbTPpTxw3
 line_handler = WebhookHandler('11ce307d39f4e16e81dc9c49c3353ca9')
 # line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 # line_handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
-# working_status = os.getenv("DEFALUT_TALKING", default = "true").lower() == "true"
+working_status = os.getenv("DEFALUT_TALKING", default = "true").lower() == "true"
 
 app = Flask(__name__)
 finance = Finance()

@@ -5,7 +5,13 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 import os
 from api.finance import Finance
 
+
+# ETF, 績優股, 金融股
 TYPE = "1.ETF, 2.績優股, 3.金融股"
+ETF = {'00878.TW': '國泰永續高股息', '00919.TW': '群益台灣精選高息', '00713.TW': '元大台灣高息低波', '0056.TW': '元大高股息','006208.TW': '富邦台灣50', '00690.TW': '兆豐藍籌30', '00850.TW': '元大臺灣ESG永續', '00701.TW': '國泰股利精選30'}
+BLUE_CHIP = {'2356.TW': '英業達','2330.TW': '台積電', '2454.TW': '聯發科', '2357.TW': '華碩', '6505.TW': '台塑','1102.TW': '亞泥','2324.TW': '仁寶'}
+FINANCIAL = {'2890.TW': '永豐金','2886.TW': '兆豐金','2885.TW': '元大金'}
+
 
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 line_handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
@@ -45,7 +51,7 @@ def handle_message(event):
         reply = TYPE
     elif msg.text == "ETF" or msg.text == "etf" or msg.text == "1" or msg.text == "1.":
         reply = "ETF"
-        for key, val in finance.ETF:
+        for key, val in ETF:
             reply += key + " : " + val + "\n"
         # reply = "00878.TW : 國泰永續高股息" + \
         #         "00919.TW : 群益台灣精選高息" + \

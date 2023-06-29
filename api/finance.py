@@ -91,7 +91,7 @@ class Finance:
         im = pyimgur.Imgur(client_id)
         path = "img.png"
         uploaded_image = im.upload_image(path, title='Img')
-        print(uploaded_image.link)
+        # print(uploaded_image.link)
         return uploaded_image.link
 
 

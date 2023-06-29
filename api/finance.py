@@ -3,8 +3,8 @@ import pandas as pd
 import yfinance as yf
 import matplotlib.pyplot as plt
 import datetime
-# from imgurpython import ImgurClient
 import pyimgur
+# from imgurpython import ImgurClient
 
 class Finance:
     def __init__(self):

@@ -2,7 +2,7 @@ from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
-from api.finance import Finance
+from finance import Finance
 # import os
 
 # ETF, 績優股, 金融股
@@ -89,21 +89,21 @@ def handle_message(event):
     elif msg in ETF or msg in BLUE_CHIP or msg in FINANCIAL:
         if msg in ETF:
             reply = finance.getReplyMsg(msg, ETF[msg])
-            # img_url = finance.getImg(msg)
+            img_url = finance.getImg(msg)
         elif msg in BLUE_CHIP:
             reply = finance.getReplyMsg(msg, BLUE_CHIP[msg])
-            # img_url = finance.getImg(msg)
+            img_url = finance.getImg(msg)
         elif msg in FINANCIAL:
             reply = finance.getReplyMsg(msg, FINANCIAL[msg])
-            # img_url = finance.getImg(msg)
+            img_url = finance.getImg(msg)
         else:
             reply = '抱歉，請再試一次'
 
         message.append(TextSendMessage(text = reply))
-        # message.append(ImageSendMessage(
-        #     original_content_url = img_url,
-        #     preview_image_url = img_url
-        # ))
+        message.append(ImageSendMessage(
+            original_content_url = img_url,
+            preview_image_url = img_url
+        ))
     else:
         reply = "我不知道你在說什麼"
 

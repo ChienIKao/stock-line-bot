@@ -4,7 +4,7 @@ services:
   env: python
   repo: https://github.com/ChienIKao/stock-line-bot.git
   buildCommand: pip install -r requirements.txt
-  startCommand: python "api/index.py"
+  startCommand: 
   plan: free
   autoDeploy: false
   envVars:

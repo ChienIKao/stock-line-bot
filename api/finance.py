@@ -124,7 +124,7 @@ class Finance:
         ax.set_xlabel('Date')
         ax.set_ylabel('Price')
 
-        fig.savefig("img.png")
+        fig.savefig("static/img.png")
 
         return self.upload()
     

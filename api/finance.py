@@ -90,7 +90,7 @@ class Finance:
 
         im = pyimgur.Imgur(client_id)
         path = "img.png"
-        uploaded_image = im.upload_image(path, title='Img')
+        uploaded_image = im.upload_image(path, title='Uploaded with PyImgur')
         # print(uploaded_image.link)
         return uploaded_image.link
 
@@ -124,7 +124,7 @@ class Finance:
         ax.set_xlabel('Date')
         ax.set_ylabel('Price')
 
-        fig.savefig("static/img.png")
+        fig.savefig("img.png")
 
         return self.upload()
     

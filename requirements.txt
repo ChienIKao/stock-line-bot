@@ -3,6 +3,6 @@ line-bot-sdk
 numpy
 pandas
 yfinance
-matplotlib.pyplot
+matplotlib
 datetime
 pyimgur
